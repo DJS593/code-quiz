@@ -1,13 +1,7 @@
-var quizId = document.querySelector("#quiz");
 
-var resultsId = document.querySelector("#results");
+// Array of questions for quiz
 
-var buttonId = document.querySelector("#results");
-
-
-// List of questions for quiz
-
-var quizQestions =[
+var myQestions =[
   {
     question: "Who invented Javascript?",
     answers: {
@@ -41,11 +35,34 @@ var quizQestions =[
 ];
 
 
+var quizContainer = document.getElementById("#quiz");
+
+var resultsContainer = document.getElementbyId("#results");
+
+var submitButton = document.getElementId("#results");
+
+
+
 
 
 // Build out the structure of the quiz
+// disply quiz when page is opened
 
-var preQuiz = function() {}
+var buildQuiz = function() {}
+
+function buildQuiz() {
+  var output = [];
+
+  myQestions.forEach(currentQuestion, questionNumber) {
+    var answers [];
+
+    for (letter in crrentQuestion.answers) {
+      answers.push()
+    }
+  }
+}
+
+// show results once submitted
 
 var showResults = function() {}
 
