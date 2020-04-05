@@ -1,10 +1,12 @@
-const startButton = document.getElementById('start-btn')
-const nextButton = document.getElementById('next-btn')
-const questionContainerElement = document.getElementById('question-container')
-const questionElement = document.getElementById('question')
-const answerButtonsElement = document.getElementById('answer-buttons')
+// List of global variables
 
-let shuffledQuestions, currentQuestionIndex
+var startButton = document.getElementById('start-btn')
+var nextButton = document.getElementById('next-btn')
+var questionContainerElement = document.getElementById('question-container')
+var questionElement = document.getElementById('question')
+var answerButtonsElement = document.getElementById('answer-buttons')
+
+var shuffledQuestions, currentQuestionIndex
 
 startButton.addEventListener('click', startGame)
 nextButton.addEventListener('click', () => {
@@ -26,9 +28,9 @@ function setNextQuestion() {
 }
 
 function showQuestion(question) {
-    questionElement.innertext = question.question
+    questionElement.innerText = question.question
     question.answers.forEach(answer => {
-    const button = document.createElement('button')
+    var button = document.createElement('button')
     button.innerText = answer.text
     button.classList.add('btn')
     if (answer.correct) {
@@ -37,6 +39,7 @@ function showQuestion(question) {
     button.addEventListener('click', selectAnswer)
     answerButtonsElement.appendChild(button)
   })  
+  console.log(question)
 }
 
 function resetState() {
@@ -48,8 +51,8 @@ function resetState() {
 }
 
 function selectAnswer(e) {
-  const selectedButton = e.target
-  const correct = selectedButton.dataset.correct
+  var selectedButton = e.target
+  var correct = selectedButton.dataset.correct
   setStatusClass(document.body, correct)
   Array.from(answerButtonsElement.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
@@ -76,36 +79,46 @@ function clearStatusClass(element) {
   element.classList.remove('wrong')
 }
 
-const questions = [
+// Array for questions and answers
+
+var questions = [
   {
     question: 'What is 2 + 2?',
     answers: [
       { text: '4', correct: true },
-      { text: '22', correct: false }
+      { text: '22', correct: false },
+      { text: '55', correct: false },
+      { text: '33', correct: false }
     ]
   },
 
   {
-    question: 'What is 2 + 2?',
+    question: 'What is 4 + 4?',
     answers: [
-      { text: '4', correct: true },
-      { text: '22', correct: false }
+      { text: '8', correct: true },
+      { text: '22', correct: false },
+      { text: '55', correct: false },
+      { text: '33', correct: false }
     ]
   },
 
   {
-    question: 'What is 2 + 2?',
+    question: 'What is 6 + 6?',
     answers: [
-      { text: '4', correct: true },
-      { text: '22', correct: false }
+      { text: '12', correct: true },
+      { text: '22', correct: false },
+      { text: '55', correct: false },
+      { text: '33', correct: false }
     ]
   },
 
   {
-    question: 'What is 2 + 2?',
+    question: "What is 8 + 8?",
     answers: [
-      { text: '4', correct: true },
-      { text: '22', correct: false }
+      { text: '16', correct: true },
+      { text: '22', correct: false },
+      { text: '55', correct: false },
+      { text: '33', correct: false }
     ]
   }
   
