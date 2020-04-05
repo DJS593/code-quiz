@@ -3,20 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Quiz</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-  <!--This is where the questions will reside-->
-  <div id="quiz"></div>
-  <!-- button for submission and event for eventListener-->
-  <button id="submit">Submit Quiz</button>
-  <!--box for results-->
-  <div id="results"></div>
+ <!-- <header>
+    <div class = highscores>
+      <p>View High Scores</p>
+    </div>
 
+    <div class = timer>
+      Time:
+    </div>
 
+  </header>  -->
+  
+  <div class="container">
+    <div id="question-container" class="hide">
+      <div id="questions">Questions</div>
+      <div id="ansers-buttons" class="btn-grid">
+        <button class="btn">Answer 1</button>
+        <button class="btn">Answer 2</button>
+        <button class="btn">Answer 3</button>
+        <button class="btn">Answer 4</button>
+      </div>
+    </div>
+    <div class="controls">
+      <button id="start-btn" class="start-btn btn">Start</button>
+      <button id="next-btn" class="next-btn btn hide">Next</button>
+    </div>
+  </div>
 
-
-
-  <script src = /assets/js/script.js></script>
+  <script src = ./assets/js/script.js></script>
 </body>
 </html>

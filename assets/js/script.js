@@ -34,7 +34,8 @@ var myQestions =[
   }
 ];
 
-
+console.log("hello");
+/*
 var quizContainer = document.getElementById("#quiz");
 
 var resultsContainer = document.getElementbyId("#results");
@@ -67,4 +68,4 @@ function buildQuiz() {
 var showResults = function() {}
 
 
-buttonId.addEventListener("click", showResults);
+buttonId.addEventListener("click", showResults); */
