@@ -5,6 +5,8 @@ var nextButton = document.getElementById('next-btn')
 var questionContainerElement = document.getElementById('question-container')
 var questionElement = document.getElementById('question')
 var answerButtonsElement = document.getElementById('answer-buttons')
+var timerEl = document.getElementById("timer")
+var timeLeft = 60
 
 var shuffledQuestions, currentQuestionIndex
 
@@ -22,13 +24,24 @@ function startGame() {
   setNextQuestion()
 }
 
+var startTime = setInterval(function(startGame) {
+  timerEl.textContent = timeLeft + " seconds remaining";
+  timeLeft--;
+
+  if (timeLeft === 0) {
+    timerEl.textContent = "";
+    clearInterval(timeInterval);
+  }  
+
+}, 1000);
+
 function setNextQuestion() {
   resetState()
   showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 
 function showQuestion(question) {
-    questionElement.innerText = question.question
+questionElement.innerText = question.question
     question.answers.forEach(answer => {
     var button = document.createElement('button')
     button.innerText = answer.text
@@ -83,121 +96,133 @@ function clearStatusClass(element) {
 
 var questions = [
   {
-    question: 'What is 2 + 2?',
+    question: 'Who invented Javascript?',
     answers: [
-      { text: '4', correct: true },
-      { text: '22', correct: false },
-      { text: '55', correct: false },
-      { text: '33', correct: false }
+      { text: 'Douglas Crockford', correct: false },
+      { text: 'Sheryl Sandberg', correct: false },
+      { text: 'Brendan Eich', correct: true },
+      { text: 'David Stahl', correct: false }
     ]
   },
 
   {
-    question: 'What is 4 + 4?',
+    question: 'Which one of the these is a JavaScript package manager?',
     answers: [
-      { text: '8', correct: true },
-      { text: '22', correct: false },
-      { text: '55', correct: false },
-      { text: '33', correct: false }
+      { text: 'Node.js', correct: false },
+      { text: 'TypeScript', correct: false },
+      { text: 'npm', correct: true },
+      { text: 'HTML for dummies', correct: false }
     ]
   },
 
   {
-    question: 'What is 6 + 6?',
+    question: 'Which tool can you use to ensure code quality',
     answers: [
-      { text: '12', correct: true },
-      { text: '22', correct: false },
-      { text: '55', correct: false },
-      { text: '33', correct: false }
+      { text: 'Angular', correct: false },
+      { text: 'JQuery', correct: false },
+      { text: 'RequireJS', correct: false },
+      { text: 'ESLint', correct: true }
     ]
   },
 
   {
-    question: "What is 8 + 8?",
+    question: "Inside which HTML element do we put the JavaScript?",
     answers: [
-      { text: '16', correct: true },
-      { text: '22', correct: false },
-      { text: '55', correct: false },
-      { text: '33', correct: false }
+      { text: '<js>', correct: false },
+      { text: '<script>', correct: true },
+      { text: '<scripting>', correct: false },
+      { text: '<javascript>', correct: false }
     ]
-  }
-  
+  },
 
+  {
+    question: "Where is the correct place to insert a JavaScript?",
+    answers: [
+      { text: 'The <head> section', correct: false },
+      { text: 'Both the <head> section and the <body> section are correct', correct: true },
+      { text: 'The <body> section', correct: false },
+      { text: 'Anywhere is fine', correct: false }
+    ]
+  },
 
+  {
+    question: 'How do you write "Hello World" in an alert box?',
+    answers: [
+      { text: 'alert("Hello World")', correct: true },
+      { text: 'msg("Hello World")', correct: false },
+      { text: 'alertBox("Hello World")', correct: false },
+      { text: 'msgBox("Hello World")', correct: false }
+    ]
+  },
+
+  {
+    question: 'How do you create a function in JavaScript?',
+    answers: [
+      { text: 'function:myFunction()', correct: false },
+      { text: 'function myFunction()', correct: true },
+      { text: 'function = myFunction()', correct: false },
+      { text: 'all of the above will work', correct: false }
+    ]
+  },
+
+  {
+    question: 'How do you call a function named "myFunction',
+    answers: [
+      { text: 'call myFunction()', correct: false },
+      { text: 'call function myFunction()', correct: false },
+      { text: 'myFunction()', correct: true },
+      { text: 'all of the above will work', correct: false }
+    ]
+  },
+
+  {
+    question: 'How does a FOR loop start?',
+    answers: [
+      { text: 'for i = 1 to 5', correct: false },
+      { text: 'for (i = 0; i <= 5)', correct: false },
+      { text: 'for (i = 0; i <= 5; i++)', correct: true },
+      { text: 'for (i <= 5; i++)', correct: false }
+    ]
+  },
+
+  {
+    question: 'How can you add a comment in a JavaScript?',
+    answers: [
+      { text: '*This is a comment', correct: false },
+      { text: '<!--This is a comment-->', correct: false },
+      { text: 'This is comment', correct: false },
+      { text: '//This is a comment', correct: true }
+    ]
+  },
+
+  {
+    question: 'How do you find the number with the highest value of x and y?',
+    answers: [
+      { text: 'Math.max(x,y)', correct: true },
+      { text: 'Math.ceil(x,y)', correct: false },
+      { text: 'top(x,y)', correct: false },
+      { text: 'ceil(x,y)', correct: false }
+    ]
+  },
+
+  {
+    question: 'How do you declare a JavaScript variable?',
+    answers: [
+      { text: 'var carName;', correct: true },
+      { text: 'v carName;', correct: false },
+      { text: 'variable carName;', correct: false },
+      { text: 'all of the above will work', correct: false }
+    ]
+  },
+
+  {
+    question: 'Which operator is used to assign a value to a variable?',
+    answers: [
+      { text: ' x ', correct: false },
+      { text: ' * ', correct: false },
+      { text: ' - ', correct: false },
+      { text: ' = ', correct: true }
+    ]
+  },
 
 ]
-  
-
-
-
-
-// Array of questions for quiz
-/*
-var myQestions =[
-  {
-    question: "Who invented Javascript?",
-    answers: {
-      a: "Douglas Crockford",
-      b: "Sheryl Sandberg",
-      c: "Brendan Eich",
-      d: "David Stahl"
-    },
-    correctAnswer: "c"
-  },
-  {
-    question: "Which one of these is a JavaScript package manager?",
-    answers: {
-      a: "Node.js",
-      b: "TypeScript",
-      c: "npm",
-      d: "David Stahl"
-    },
-    correctAnswers: "c"
-  },
-  {
-    question: "Which tool can you use to ensure code quality?",
-    answers: {
-      a: "Angular",
-      b: "JQuery",
-      c: "RequireJS",
-      d: "ESLint"
-    },
-    correctAnswer: "d"
-  }
-];
-
-console.log("hello");
-/*
-var quizContainer = document.getElementById("#quiz");
-
-var resultsContainer = document.getElementbyId("#results");
-
-var submitButton = document.getElementId("#results");
-
-
-
-
-
-// Build out the structure of the quiz
-// disply quiz when page is opened
-
-var buildQuiz = function() {}
-
-function buildQuiz() {
-  var output = [];
-
-  myQestions.forEach(currentQuestion, questionNumber) {
-    var answers [];
-
-    for (letter in crrentQuestion.answers) {
-      answers.push()
-    }
-  }
-}
-
-// show results once submitted
-
-var showResults = function() {}
-
-
-buttonId.addEventListener("click", showResults); */

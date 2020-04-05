@@ -15,6 +15,40 @@
 
 /* begin body style */
 
+header {
+  position: absolute;
+  top: 10px;
+  color: white;
+  padding: 100px;
+  margin: 0;
+  display: flex;
+  width: 100%;
+  height: 100px;
+  justify-content: space-between;
+  background-color: hsl(var(--hue), 100%, 20%);
+  
+}
+
+header.div.score {
+  width: 300px;
+}
+
+
+header.score {
+  margin-right: 200px;
+  
+}
+
+header p {
+  color: white;
+  font-size: 24px;
+}
+
+.time {
+  color: white;
+  font-size: 24px;
+}
+
 body {
   --hue: var(--hue-neutral);
   padding: 0;
@@ -48,8 +82,7 @@ body.wrong {
 
 .btn-grid {
   display: grid;
-  grid-template-columns: repeat(2, auto);
-  /* remove grid-template-column if you want one column */
+  /* grid-template-columns: repeat(2, auto); */
   gap: 10px;
   margin: 20px 0;
 }
