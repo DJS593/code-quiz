@@ -9,7 +9,7 @@
 ### State of current prototype
 - quiz contains random questions
 - user is informed if question is correct or incorrect based on screen color
-- A timer begins are zero, but quiz does not end when the timer hits 0. This enhancement will be added.
+- A timer begins at 60, but quiz does not end when the timer hits 0. This enhancement will be added.
 - Scoring is not operational, but will be added.  Method is discussed in scores.HTML, which is a secondary page that will be utilized for score delivery and tracking. 
 
 ### Quiz URL:
