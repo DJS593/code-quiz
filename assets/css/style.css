@@ -7,13 +7,13 @@
 
 /* controlling background color depending on answer */
 :root {
-  --hue-neutral: 200;
+  --hue-neutral: 180;
   --hue-wrong: 0;
   --hue-correct: 145;
 }
 
 
-/* begin body style */
+/* begin header style */
 
 header {
   position: absolute;
@@ -39,15 +39,18 @@ header.score {
   
 }
 
-header p {
+header li {
   color: white;
   font-size: 24px;
+  list-style: none;
 }
 
 .time {
   color: white;
   font-size: 24px;
 }
+
+/* begin question / answer container section, which I have under <body> */
 
 body {
   --hue: var(--hue-neutral);
@@ -71,8 +74,9 @@ body.wrong {
   --hue: var(--hue-wrong);
 }
 
+/* limiting the container width to 600px for "looks" */
 .container {
-  width: 800px;
+  width: 600px;
   max-width: 80%;
   background-color: white;
   border-radius: 5px;
@@ -89,16 +93,17 @@ body.wrong {
 
 .btn {
   --hue: var(--hue-neutral);
-  border: 1px solid hsl(var(--hue), 100%, 30%);
+  border: 3px solid hsl(var(--hue), 100%, 30%);
   background-color: hsl(var(--hue), 100%, 50%);
   border-radius: 5px;
   padding: 5px 10px;
-  color: white;
+  color: black;
   outline: none;
 }
 
 .btn:hover {
   border-color: black;
+
 }
 
 .btn-correct {
