@@ -25,7 +25,7 @@ var startTime = setInterval(function() {
  
   if (timeLeft === 0) {
     timerEl.textContent = "";
-    clearInterval(timeInterval);
+    clearInterval(startTime);
   }  
 
 }, 1000);
@@ -91,11 +91,21 @@ function setStatusClass(element, correct) {
 };
 
 
-
 function clearStatusClass(element) {
   element.classList.remove('correct');
   element.classList.remove('wrong');
 };
+
+// showResults is where the score will be calculated and then added to scores.html.  I removed most of the existing code because it was not working.  Approach discussed more in scores.html.
+
+/* function showResults(questions) {
+  var correctAnswers = questions.correct
+
+  for (var i=0; i < questions.length; i++) {
+
+  }
+}; */
+
 
 
 // addEventListeners are typically at bottom of .js page though some are enbedded in the functions

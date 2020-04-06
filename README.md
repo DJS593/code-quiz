@@ -10,7 +10,7 @@
 - quiz contains random questions
 - user is informed if question is correct or incorrect based on screen color
 - A timer begins at 60, but quiz does not end when the timer hits 0. This enhancement will be added.
-- Scoring is not operational, but will be added.  Method is discussed in scores.HTML, which is a secondary page that will be utilized for score delivery and tracking. 
+- Scoring is not operational since code did not work as intended, but will be added in future enhancement.  Method is discussed in scores.HTML, which is a secondary page that will be utilized for score delivery and tracking. 
 
 ### Quiz URL:
 https://djs593.github.io/code-quiz/
