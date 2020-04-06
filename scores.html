@@ -1,3 +1,6 @@
+<!--This complimentary page is designed to provide the quiz taker with a score and offer them the ability to record the score using their initials.  Then the highscores will be ranked by order.  We will use getIdByElement and appendChild to populate the score.  With a score we can then setAttibute or setItem the score to the localStorage.  Once there we can pull the list of top scores.-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,21 +9,14 @@
   <title>Scores</title>
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
-
+<body id="second-page" class="record-score">
   <div id="final-score" class="fscore">
     <p>
       All Done! </br>
       Your score is:
     </p>
-  
+    <li id="initials" class="player">Leave your Initials</li>
     <button class="btn-submit">Submit</button>
-  
-  </div>
-
-  <button>
-
-  </button>
-  
+  </div> 
 </body>
 </html>

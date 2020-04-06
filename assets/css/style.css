@@ -1,3 +1,6 @@
+/* The stylesheet will be used for both index.html and score.html.  */
+
+/* global styles */
 *, *::before, *::after {
 
   box-sizing: border-box;
@@ -6,6 +9,7 @@
 
 
 /* controlling background color depending on answer */
+/* experimenting with hue, but using color: can be used as well */
 :root {
   --hue-neutral: 180;
   --hue-wrong: 0;
@@ -49,6 +53,7 @@ header li {
   color: white;
   font-size: 24px;
 }
+/* end header style */
 
 /* begin question / answer container section, which I have under <body> */
 
@@ -86,7 +91,6 @@ body.wrong {
 
 .btn-grid {
   display: grid;
-  /* grid-template-columns: repeat(2, auto); */
   gap: 10px;
   margin: 20px 0;
 }
@@ -131,4 +135,37 @@ body.wrong {
 
 .hide {
   display: none;
+}
+
+/* end body (question and answer container) style */
+
+/* begin scores.html style */
+/* this is a secondary page to load scores and track high score */
+
+body.record-score {
+  --hue: var(--hue-neutral);
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(var(--hue), 100%, 20%);
+
+}
+
+.player {
+  list-style: none;
+}
+
+.btn-submit {
+  --hue: var(--hue-neutral);
+  border: 3px solid hsl(var(--hue), 100%, 30%);
+  background-color: hsl(var(--hue), 100%, 50%);
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: black;
+  outline: none;
+
 }

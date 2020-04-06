@@ -1,30 +1,25 @@
 // List of global variables
 
-var startButton = document.getElementById('start-btn');
-var nextButton = document.getElementById('next-btn');
-var questionContainerElement = document.getElementById('question-container');
-var questionElement = document.getElementById('question');
-var answerButtonsElement = document.getElementById('answer-buttons');
+var startButton = document.getElementById("start-btn");
+var nextButton = document.getElementById("next-btn");
+var questionContainerElement = document.getElementById("question-container");
+var questionElement = document.getElementById("question");
+var answerButtonsElement = document.getElementById("answer-buttons");
 var timerEl = document.getElementById("timer");
+var shuffledQuestions, currentQuestionIndex;
 var timeLeft = 60;
 
-var shuffledQuestions, currentQuestionIndex;
-
-startButton.addEventListener('click', startGame);
-nextButton.addEventListener('click', () => {
-  currentQuestionIndex++
-  setNextQuestion();
-});
-
 function startGame() {
-  startButton.classList.add('hide');
+  startButton.classList.add("hide");
   shuffledQuestions = questions.sort(() => Math.random() - .5);
   currentQuestionIndex = 0;
-  questionContainerElement.classList.remove('hide');
+  questionContainerElement.classList.remove("hide");
   setNextQuestion();
 };
 
-var startTime = setInterval(function(startGame) {
+// var startTime starts the clock at 60 seconds and counts down.  Currently counting beyond 0, which needs to be fixed
+
+var startTime = setInterval(function() {
   timerEl.textContent = timeLeft + " seconds remaining";
   timeLeft--;
  
@@ -35,10 +30,14 @@ var startTime = setInterval(function(startGame) {
 
 }, 1000);
 
+// setNextQuestion brings up the next question and resets the "container."  In addition, the question order is random.
+
 function setNextQuestion() {
   resetState()
   showQuestion(shuffledQuestions[currentQuestionIndex])
 };
+
+// showQuestion offfers functionality for showing a question and picking an answer.  Screen changse color depending on whether the answer is correct or not.
 
 function showQuestion(question) {
 questionElement.innerText = question.question;
@@ -54,6 +53,8 @@ questionElement.innerText = question.question;
   });  
 };
 
+// clears prior question and answers
+
 function resetState() {
   clearStatusClass(document.body);
   nextButton.classList.add('hide');
@@ -61,6 +62,8 @@ function resetState() {
     answerButtonsElement.removeChild(answerButtonsElement.firstChild);
   }
 };
+
+// functionality to answer questions and restart the quiz
 
 function selectAnswer(e) {
   var selectedButton = e.target;
@@ -80,16 +83,29 @@ function selectAnswer(e) {
 function setStatusClass(element, correct) {
   clearStatusClass(element);
   if (correct) {
-    element.classList.add('correct');
+    element.classList.add("correct");
   } else {
-    element.classList.add('wrong');
+    element.classList.add("wrong");
   }
+  // console.log(element.classList.add("correct"))
 };
+
+
 
 function clearStatusClass(element) {
   element.classList.remove('correct');
   element.classList.remove('wrong');
 };
+
+
+// addEventListeners are typically at bottom of .js page though some are enbedded in the functions
+
+startButton.addEventListener('click', startGame);
+nextButton.addEventListener('click', () => {
+  currentQuestionIndex++
+  setNextQuestion();
+});
+
 
 // Array for questions and answers
 
